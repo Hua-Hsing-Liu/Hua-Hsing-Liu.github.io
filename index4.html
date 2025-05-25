@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>BioFuture 生技未來</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Orbitron', sans-serif;
+    }
+    .glass {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .bg-animate {
+      background: linear-gradient(-45deg, #0f172a, #0e7490, #0f766e, #1e293b);
+      background-size: 400% 400%;
+      animation: gradientMove 12s ease infinite;
+    }
+    @keyframes gradientMove {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+    .card-hover {
+      transition: transform 0.6s ease, box-shadow 0.6s ease;
+    }
+    .card-hover:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 20px 40px rgba(0, 255, 200, 0.2);
+    }
+    .dna {
+      border-left: 2px solid #22d3ee;
+      height: 150px;
+      animation: dnaTwist 2s infinite linear;
+    }
+    @keyframes dnaTwist {
+      0% {transform: rotate(0deg);}
+      100% {transform: rotate(360deg);}
+    }
+  </style>
+</head>
+<body class="bg-animate text-white">
+
+  <!-- Hero 區 -->
+  <section class="h-screen flex flex-col items-center justify-center text-center px-6">
+    <h1 class="text-7xl md:text-8xl font-bold mb-4 text-cyan-400">BioFuture</h1>
+    <div class="dna mb-6"></div>
+    <p class="text-xl md:text-2xl mb-8 text-green-400">探索 AI × 生醫的無限可能</p>
+    <a href="#services" class="bg-green-400 text-black font-semibold px-8 py-3 rounded-full hover:bg-green-300 transition">立即體驗</a>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="py-24 px-6">
+    <h2 class="text-5xl font-bold text-center mb-16 text-cyan-300">核心技術</h2>
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
+      <div class="p-8 glass rounded-xl text-center card-hover">
+        <h3 class="text-2xl mb-4 text-green-300">基因編輯</h3>
+        <p class="text-gray-200">次世代 CRISPR 精準基因調控技術，提升治療成功率。</p>
+      </div>
+      <div class="p-8 glass rounded-xl text-center card-hover">
+        <h3 class="text-2xl mb-4 text-green-300">智慧細胞</h3>
+        <p class="text-gray-200">細胞運算模擬與 AI 預測，掌握生物動態變化。</p>
+      </div>
+      <div class="p-8 glass rounded-xl text-center card-hover">
+        <h3 class="text-2xl mb-4 text-green-300">生物感測</h3>
+        <p class="text-gray-200">高靈敏微型生醫感測器，實時健康監測。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="py-24 bg-gradient-to-r from-blue-900 to-blue-800 px-6">
+    <h2 class="text-5xl font-bold text-center mb-12 text-green-300">我們的願景</h2>
+    <div class="max-w-3xl mx-auto text-lg leading-relaxed text-gray-200 text-center">
+      <p>BioFuture 致力於結合 AI、基因科技與智慧生醫裝置，打造全新世代的健康照護體系，重新定義生命科技與人類未來。</p>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-24 px-6">
+    <h2 class="text-5xl font-bold text-center mb-16 text-cyan-300">聯絡我們</h2>
+    <div class="max-w-xl mx-auto space-y-6">
+      <input type="text" placeholder="您的姓名" class="w-full p-4 glass rounded-lg border border-cyan-300 text-white placeholder-gray-400" />
+      <input type="email" placeholder="電子信箱" class="w-full p-4 glass rounded-lg border border-cyan-300 text-white placeholder-gray-400" />
+      <textarea placeholder="留言內容" class="w-full p-4 glass rounded-lg border border-cyan-300 text-white placeholder-gray-400 h-32"></textarea>
+      <button class="w-full bg-green-400 text-black font-semibold py-4 rounded-lg hover:bg-green-300 transition">送出</button>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-6 text-center text-gray-500 text-sm">
+    © 2025 BioFuture Inc. All rights reserved.
+  </footer>
+
+</body>
+</html>
