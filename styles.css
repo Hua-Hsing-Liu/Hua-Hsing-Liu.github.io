@@ -1,0 +1,445 @@
+/* ===== 全域設定 ===== */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 1200px; /* 避免視窗變窄時版面亂跑 */
+}
+
+body {
+  margin: 0;
+  font-family: "Noto Sans HK", sans-serif;
+  background-color: #fff;
+  color: #333;
+}
+
+h2 {
+  font-size: 22px;
+  color: #003400;
+  margin-bottom: 18px;
+  text-align: center; /* ✅ 加上置中 */
+  font-family: "華康明體 Std W9", serif;
+}
+
+/* ===== 上方 LOGO 區 ===== */
+.top-bar {
+  background-color: #003400;
+  padding: 6px 20px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 30px;
+  z-index: 1000;
+}
+
+.top-logo {
+  height: 30px;
+}
+
+/* ===== 導覽列（白底綠字） ===== */
+.navbar {
+  background-color: white;
+  padding: 12px 30px;
+  position: fixed;
+  top: 40px;
+  width: 100%;
+  z-index: 999;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  justify-content: flex-start; /* ✅ 改成靠左 */
+  margin: 0;
+  padding: 0;
+  gap: 30px;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #003400;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.nav-links li a:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px; /* ✅ 底線與文字之間的距離，讓排版更美觀 */
+}
+/* ===== Hero 主視覺區 ===== */
+.hero {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 100px 1% 40px;
+}
+
+/* ✅ 輪播圖片容器 */
+.carousel-container {
+  flex: 0 0 60%;
+  max-width: 60%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.carousel {
+  display: flex;
+  width: 300%;
+  height: 100%;
+  transition: transform 0.5s ease-in-out;
+}
+
+/* 點點區 */
+.carousel-dots {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+}
+.dot {
+  width: 10px;
+  height: 10px;
+  background-color: #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.dot.active {
+  background-color: #003400;
+}
+
+/* ✅ slogan 區域（右側） */
+.slogan-area {
+  flex: 0 0 38%;
+  max-width: 38%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-top: 130px;
+  padding-right: 24px; /* ✅ 加這行，數值可調整 */
+}
+
+/* slogan 上方文字 */
+.slogan-top {
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-weight: 600;
+  font-family: "DFMingStd-W12", "華康明體 Std W12", serif;
+  color: #003400;
+  line-height: 1.4;
+  text-align: right;
+  margin-bottom: 0.5em;
+}
+
+/* 包住色塊 + 去背圖 */
+.slogan-bottom-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 100%;
+}
+
+/* 綠色色塊 */
+.slogan-bottom {
+  background-color: #003400;
+  color: white;
+  padding: 1em 1.5em 3em;
+  font-size: clamp(0.9rem, 1.2vw, 1.1rem); /* ← 修正遺漏的 rem */
+  font-weight: 900;
+  font-family: "DFMingStd-W9", "華康明體 Std W9", serif;
+  white-space: nowrap;
+  border-radius: 0;
+  margin-top: 0.5em;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: right;
+  position: relative;
+  z-index: 1;
+}
+
+/* 去背產品圖 - 浮在色塊右下角 */
+.product-under-banner {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transform: translateY(50%);
+  width: clamp(120px, 20vw, 220px);
+  object-fit: contain;
+  z-index: 2;
+}
+
+/* ===== 各段落區塊 ===== */
+section {
+  padding: 80px 5%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+section p {
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+/* ===== 產品列表區 ===== */
+/* 區塊標題 */
+.section-title {
+  font-size: 22px;
+  font-family: "DFMingStd-W9", "華康明體 Std W9", serif;
+  text-align: center;
+  margin-bottom: 22px;
+  color: #003400;
+}
+
+/* ✅ 改為始終兩欄排列 */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  padding: 0 20px;
+}
+
+/* 卡片容器：設置高度避免翻轉時溢出重疊 */
+.product-card {
+  height: 360px; /* ✅ 固定卡片高度 */
+  perspective: 1000px;
+  position: relative;
+} /* 區塊標題 */
+.section-title {
+  font-size: 32px;
+  font-family: "DFMingStd-W12", "華康明體 Std W12", serif;
+  text-align: center;
+  margin-bottom: 24px;
+  color: #003400;
+}
+
+/* 網格排列 */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  padding: 0 20px;
+}
+
+/* 手機平板版：兩格一排 */
+@media (max-width: 768px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* 單個卡片 */
+.product-card {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  text-align: center;
+  padding: 16px;
+}
+
+/* 產品圖片 */
+.product-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+/* 產品資訊 */
+.product-name {
+  font-size: 18px;
+  font-weight: bold;
+  font-family: "DFMingStd-W12", "華康明體 Std W12", serif;
+  margin-bottom: 4px;
+}
+
+.product-amount {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 12px;
+}
+
+/* 按鈕區 */
+.product-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* 按鈕樣式 */
+.btn {
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.btn-outline {
+  border: 2px solid #003400;
+  color: #003400;
+  background-color: white;
+}
+
+.btn-outline:hover {
+  background-color: #e8f5e9;
+}
+
+.btn-primary {
+  background-color: #003400;
+  color: white;
+  border: 2px solid #003400;
+}
+
+.btn-primary:hover {
+  background-color: #025e02;
+}
+
+/* 卡片內部翻轉框 */
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* 翻轉狀態 */
+.product-card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+/* 正反兩面 */
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  top: 0;
+  left: 0;
+  border-radius: 12px;
+  padding: 16px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.card-front {
+  background-color: white;
+  z-index: 2;
+}
+
+.card-back {
+  background-color: #f1f1f1;
+  transform: rotateY(180deg);
+}
+
+/* 圖片 */
+.product-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+/* 名稱與數量 */
+.product-name {
+  font-size: 18px;
+  font-weight: bold;
+  font-family: "DFMingStd-W9", "華康明體 Std W9", serif;
+  margin-bottom: 4px;
+}
+
+.product-amount {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 12px;
+}
+
+.product-detail {
+  font-size: 14px;
+  line-height: 1.5;
+  font-family: "DFMingStd-W9", "華康明體 Std W9", serif;
+  color: #333;
+}
+/* 按鈕區 */
+.product-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: auto;
+}
+
+/* 按鈕樣式 */
+.btn {
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.btn-outline {
+  border: 2px solid #003400;
+  color: #003400;
+  background-color: white;
+}
+
+.btn-outline:hover {
+  background-color: #e8f5e9;
+}
+
+.btn-primary {
+  background-color: #003400;
+  color: white;
+  border: 2px solid #003400;
+}
+
+.btn-primary:hover {
+  background-color: #025e02;
+}
+
+/* ===== 產品特色區 ===== */
+#features ul {
+  list-style: disc;
+  padding-left: 20px;
+  font-size: 18px;
+}
+
+/* ===== Footer 聯絡我們區 ===== */
+footer {
+  background-color: #003400;
+  color: white;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+footer h2 {
+  color: white;
+}
+
+footer p {
+  margin: 10px 0;
+  font-size: 16px;
+}
